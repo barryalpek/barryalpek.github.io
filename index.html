@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Baris Alpek — Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    /* ---------- theme tokens ---------- */
+    :root{
+      --bg: #ffffff;
+      --fg: #0f0f0f;
+      --muted: #666;
+      --line: #e6e6e6;
+      --accent: #60a5fa; /* link color (soft blue) */
+      --maxw: 65ch;
+      --body: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+      --radius: 8px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #0b0b0b;
+        --fg: #f1f1f1;
+        --muted: #b3b3b3;
+        --line: #222;
+      }
+    }
+
+    /* ---------- basic layout ---------- */
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--fg);
+      font: var(--body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 40px 20px 64px; }
+    h1{ margin: 0 0 6px; font-size: clamp(28px, 6vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }
+    h2{ margin: 0 0 12px; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+    p{ margin: 0; }
+    .muted{ color: var(--muted); }
+    header{ padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    header .actions{ text-align: right; white-space: nowrap; }
+    header .actions a{ margin-left: 8px; }
+
+    /* links */
+    a{ color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover{ opacity: .9; }
+    a:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; text-decoration: none; }
+
+    /* spacing rhythm */
+    .spacer-1{ height: 8px; }
+    .spacer-2{ height: 16px; }
+    .spacer-3{ height: 24px; }
+    .spacer-4{ height: 32px; }
+
+    /* work list (spacing-only; no cards) */
+    .work{ margin-top: 16px; }
+    .work li{ list-style: none; }
+    .work li + li{ margin-top: 24px; }
+    .work .row{ display: flex; align-items: flex-start; gap: 12px; }
+    .work .row .title{ font-weight: 500; letter-spacing: -0.01em; }
+    .work .row .meta{ margin-left: auto; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .work .desc{ margin-top: 6px; font-size: 14px; color: color-mix(in oklab, var(--fg) 80%, transparent); }
+
+    /* footer */
+    footer{ margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!-- HEADER -->
+    <header>
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+        <div>
+          <h1>Baris Alpek</h1>
+          <p class="muted" style="font-size:13px;">System Science Student · Biomedical minor</p>
+          <div class="spacer-1"></div>
+          <p style="font-size:14px;">Open to 2026 internships in data &amp; healthcare.</p>
+        </div>
+        <nav class="actions" style="font-size:14px;">
+          <a href="mailto:teobalpek@gmail.com">Get in touch</a>
+          <a href="https://www.linkedin.com/in/baris-alpek-581058382">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WORK -->
+    <section class="spacer-4"></section>
+    <section aria-labelledby="work">
+      <h2 id="work">Work</h2>
+      <ul class="work">
+        <!-- Project 1 -->
+        <li>
+          <div class="row">
+            <a class="title" href="#" rel="noopener">Project One</a>
+            <span class="meta">student tool</span>
+          </div>
+          <p class="desc">Built a small tool classmates used weekly to plan labs; reduced back-and-forth by ~30%.</p>
+        </li>
+        <!-- Project 2 -->
+        <li>
+          <div class="row">
+            <a class="title" href="#" rel="noopener">Project Two</a>
+            <span class="meta">course project</span>
+          </div>
+          <p class="desc">Prototype that made X easier for Y; quick demo focused on clarity over features.</p>
+        </li>
+        <!-- Project 3 -->
+        <li>
+          <div class="row">
+            <a class="title" href="#" rel="noopener">Project Three</a>
+            <span class="meta">healthcare demo</span>
+          </div>
+          <p class="desc">Simple proof-of-concept in a biomedical context; clean UI, one-click flow.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>Stockholm University — BSc Computer &amp; Systems Sciences · KTH — Biomedical Engineering (minor)</div>
+      <div class="spacer-1"></div>
+      <div>© <span id="year"></span> Baris Alpek</div>
+    </footer>
+  </main>
+
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
