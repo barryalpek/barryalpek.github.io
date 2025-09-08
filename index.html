@@ -5,8 +5,8 @@
   <title>Baris Alpek — Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="Baris Alpek — System Science Student, biomedical inriktning. Öppen för praktik 2026." />
-  <!-- enkel statisk sida, inga ramverk -->
+  <meta name="description" content="Baris Alpek — System Science student with a biomedical minor. Open to 2026 internships in data & healthcare." />
+  <!-- enkel statisk sida -->
   <style>
     :root{
       --bg:#fff; --fg:#0f0f0f; --muted:#666; --line:#e6e6e6; --accent:#60a5fa; --maxw:65ch;
@@ -30,41 +30,41 @@
 </head>
 <body>
   <main class="wrap">
-    <!-- header -->
+    <!-- header (kort och tydligt) -->
     <header>
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
         <div>
           <h1>Baris Alpek</h1>
           <p class="muted" style="font-size:13px;">System Science Student · Biomedical minor</p>
           <div class="g"></div>
-          <p style="font-size:14px;">Öppen för praktik 2026 inom data &amp; healthcare.</p>
+          <p style="font-size:14px;">Open to 2026 internships in data &amp; healthcare.</p>
         </div>
         <!-- länkar -->
         <nav style="font-size:14px;white-space:nowrap">
-          <a href="mailto:teobalpek@gmail.com">Hör av dig</a>
+          <a href="mailto:teobalpek@gmail.com">Get in touch</a>
           <span style="margin:0 6px;color:var(--muted)">·</span>
           <a href="https://www.linkedin.com/in/baris-alpek-581058382">LinkedIn</a>
         </nav>
       </div>
     </header>
 
-    <!-- inga projekt än – lägger till när det finns nåt -->
-    
-    <!-- footer -->
+    <!-- no projects yet – lägger in sen -->
+
+    <!-- footer (lugnt och kort) -->
     <footer>
-      <div>Stockholms universitet — BSc Computer &amp; Systems Sciences · KTH — Biomedical Engineering (minor)</div>
+      <div>Stockholm University — BSc Computer &amp; Systems Sciences · KTH Royal Institute of Technology — Biomedical Engineering (minor)</div>
       <div class="g"></div>
       <div>© <span id="year"></span> Baris Alpek</div>
     </footer>
   </main>
 
   <script>
-    // årtal, så jag slipper uppdatera för hand
+    // årtal (slippa manuellt)
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // mall för projekt sen (ta bort kommentaren när det behövs)
+    // enkel mall för framtida projekt
     /*
-    const work=[{title:"Första grejen",link:"https://…",desc:"Kort rad om resultatet."}];
+    const work=[{title:"First project",link:"https://…",desc:"One short result sentence."}];
     if(work.length){
       const wrap=document.querySelector('.wrap');
       const h2=document.createElement('h2'); h2.textContent='Work';
@@ -80,4 +80,3 @@
   </script>
 </body>
 </html>
-
