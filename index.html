@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="description" content="Baris Alpek — System Science student with a biomedical minor. Open to 2026 internships in data & healthcare." />
-  <!-- enkel statisk sida -->
   <style>
     :root{
       --bg:#fff; --fg:#0f0f0f; --muted:#666; --line:#e6e6e6; --accent:#60a5fa; --maxw:65ch;
@@ -19,28 +18,57 @@
     body{margin:0;background:var(--bg);color:var(--fg);font:var(--body);-webkit-font-smoothing:antialiased}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:40px 20px 64px}
     h1{margin:0 0 6px;font-size:clamp(28px,6vw,40px);line-height:1.2;font-weight:600;letter-spacing:-0.01em}
+    h2{margin:0 0 4px;font-size:18px;font-weight:600;letter-spacing:-0.01em}
     p{margin:0}
     .muted{color:var(--muted)}
     header{padding-bottom:16px;border-bottom:1px solid var(--line)}
     a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
-    a:hover{opacity:.9}
+    a:hover{opacity:.85}
     footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
     .g{height:8px}
+    .g2{height:24px}
+
+    /* tabs */
+    .tabs{display:flex;gap:0;margin-top:24px;border-bottom:1px solid var(--line)}
+    .tab{
+      padding:8px 16px;font-size:14px;font-weight:500;color:var(--muted);
+      background:none;border:none;border-bottom:2px solid transparent;
+      cursor:pointer;font-family:inherit;transition:color .15s,border-color .15s;
+    }
+    .tab:hover{color:var(--fg)}
+    .tab.active{color:var(--fg);border-bottom-color:var(--accent)}
+
+    /* tab content */
+    .tab-content{display:none;padding-top:20px}
+    .tab-content.active{display:block}
+
+    /* project cards */
+    .card{padding:14px 0;border-bottom:1px solid var(--line)}
+    .card:last-child{border-bottom:none}
+    .card-title{font-size:15px;font-weight:500}
+    .card-meta{font-size:12px;color:var(--muted);margin-top:2px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .card-desc{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.5}
+    .card-link{font-size:13px;margin-top:6px;display:inline-block}
+
+    .empty{font-size:14px;color:var(--muted);font-style:italic;padding:16px 0}
+
+    /* responsive nav */
+    @media (max-width:480px){
+      .header-inner{flex-direction:column;gap:8px}
+      .header-nav{white-space:normal}
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <!-- header (kort och tydligt) -->
     <header>
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+      <div class="header-inner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
         <div>
           <h1>Baris Alpek</h1>
-          <p class="muted" style="font-size:13px;">System Science Student · Biomedical minor</p>
           <div class="g"></div>
           <p style="font-size:14px;">Open to 2026 internships in data &amp; healthcare.</p>
         </div>
-        <!-- länkar -->
-        <nav style="font-size:14px;white-space:nowrap">
+        <nav class="header-nav" style="font-size:14px;white-space:nowrap">
           <a href="mailto:teobalpek@gmail.com">Get in touch</a>
           <span style="margin:0 6px;color:var(--muted)">·</span>
           <a href="https://www.linkedin.com/in/baris-alpek-581058382">LinkedIn</a>
@@ -48,9 +76,46 @@
       </div>
     </header>
 
-    <!-- no projects yet – lägger in sen -->
+    <!-- tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="research">Research</button>
+      <button class="tab" data-tab="builds">Builds</button>
+    </div>
 
-    <!-- footer (lugnt och kort) -->
+    <!-- Research tab -->
+    <div class="tab-content active" id="tab-research">
+      <p class="empty">Currently in progress — check back later.</p>
+
+      <!-- add research here when ready:
+      <div class="card">
+        <div class="card-title">Paper or project title</div>
+        <div class="card-meta">Course · Term · Supervisor</div>
+        <div class="card-desc">Brief summary of the question and finding.</div>
+        <a class="card-link" href="#">Read ↗</a>
+      </div>
+      -->
+    </div>
+
+    <!-- Builds tab -->
+    <div class="tab-content" id="tab-builds">
+      <div class="card">
+        <div class="card-title">panik.</div>
+        <div class="card-desc">Deadline tracker for students juggling multiple universities. Syncs across devices.</div>
+        <a class="card-link" href="https://panik.netlify.app" target="_blank" rel="noopener">Live app ↗</a>
+        <span style="margin:0 8px;color:var(--muted);font-size:13px">·</span>
+        <a class="card-link" href="https://github.com/barryalpek/panik" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+
+      <!-- add more builds here:
+      <div class="card">
+        <div class="card-title">Project name</div>
+        <div class="card-meta">Stack</div>
+        <div class="card-desc">One sentence about what it does and why.</div>
+        <a class="card-link" href="#">Link ↗</a>
+      </div>
+      -->
+    </div>
+
     <footer>
       <div>Stockholm University — BSc Computer &amp; Systems Sciences · KTH Royal Institute of Technology — Biomedical Engineering (minor)</div>
       <div class="g"></div>
@@ -59,24 +124,17 @@
   </main>
 
   <script>
-    // årtal (slippa manuellt)
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // enkel mall för framtida projekt
-    /*
-    const work=[{title:"First project",link:"https://…",desc:"One short result sentence."}];
-    if(work.length){
-      const wrap=document.querySelector('.wrap');
-      const h2=document.createElement('h2'); h2.textContent='Work';
-      const ul=document.createElement('ul'); ul.style.display='grid'; ul.style.rowGap='24px'; ul.style.marginTop='16px';
-      work.forEach(p=>{const li=document.createElement('li'); li.innerHTML=
-        `<a href="${p.link}" style="font-weight:500;text-underline-offset:3px;">${p.title}</a>
-         <p style="margin-top:6px;font-size:14px;color:var(--muted)">${p.desc}</p>`; ul.appendChild(li);});
-      const foot=document.querySelector('footer');
-      wrap.insertBefore(document.createElement('div'),foot).className='g';
-      wrap.insertBefore(h2,foot); wrap.insertBefore(ul,foot);
-    }
-    */
+    // tab switching
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
   </script>
 </body>
 </html>
